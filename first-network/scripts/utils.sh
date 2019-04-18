@@ -139,7 +139,7 @@ instantiateChaincode() {
   # the "-o" option
   if [ -z "$CORE_PEER_TLS_ENABLED" -o "$CORE_PEER_TLS_ENABLED" = "false" ]; then
     set -x
-     peer chaincode instantiate -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc -l ${LANGUAGE} -v ${VERSION} -c '{"Args":["raiseInvoice", "company1", "17/4/2019", "5000", "some description", "Yes", "No", "5100", "No", "100", "Supplier1"]}'
+     peer chaincode instantiate -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc -l ${LANGUAGE} -v ${VERSION} -c '{"Args":["raiseInvoice", "company1", "17/4/2019", "5000", "some description", "Yes", "No", "5100", "No", "100", "Supplier1"]}' >&log.txt
 
 #    peer chaincode instantiate -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc -l ${LANGUAGE} -v ${VERSION} -c '{"Args":["init","a","100","b","200"]}' -P "AND ('Org1MSP.peer','Org2MSP.peer')" >&log.txt
     res=$?
@@ -147,7 +147,7 @@ instantiateChaincode() {
   else
     set -x
 
-     peer chaincode instantiate -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc -l ${LANGUAGE} -v ${VERSION} -c '{"Args":["raiseInvoice", "company1", "17/4/2019", "5000", "some description", "Yes", "No", "5100", "No", "100", "Supplier1"]}'
+     peer chaincode instantiate -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc -l ${LANGUAGE} -v ${VERSION} -c '{"Args":["raiseInvoice", "company1", "17/4/2019", "5000", "some description", "Yes", "No", "5100", "No", "100", "Supplier1"]}' >&log.txt
 
 #    peer chaincode instantiate -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc -l ${LANGUAGE} -v 1.0 -c '{"Args":["init","a","100","b","200"]}' -P "AND ('Org1MSP.peer','Org2MSP.peer')" >&log.txt
     res=$?
@@ -311,14 +311,14 @@ chaincodeInvoke() {
   # it using the "-o" option
   if [ -z "$CORE_PEER_TLS_ENABLED" -o "$CORE_PEER_TLS_ENABLED" = "false" ]; then
     set -x
-    peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc $PEER_CONN_PARMS -c '{"Args":["raiseInvoice", "company1", "17/4/2019", "5000", "some description", "Yes", "No", "5100", "No", "100", "Supplier1"]}'
+    peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc $PEER_CONN_PARMS -c '{"Args":["raiseInvoice", "company1", "17/4/2019", "5000", "some description", "Yes", "No", "5100", "No", "100", "Supplier1"]}' >&log.txt
 
     #peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc $PEER_CONN_PARMS -c '{"Args":["invoke","a","b","10"]}' >&log.txt
     res=$?
     set +x
   else
     set -x
-    peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc $PEER_CONN_PARMS -c '{"Args":["raiseInvoice", "company1", "17/4/2019", "5000", "some description", "Yes", "No", "5100", "No", "100", "Supplier1"]}'
+    peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc $PEER_CONN_PARMS -c '{"Args":["raiseInvoice", "company1", "17/4/2019", "5000", "some description", "Yes", "No", "5100", "No", "100", "Supplier1"]}' >&log.txt
     #peer chaincode invoke -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc $PEER_CONN_PARMS -c '{"Args":["invoke","a","b","10"]}' >&log.txt
     res=$?
     set +x
